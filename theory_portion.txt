@@ -1,0 +1,65 @@
+Q1. Which keyword is used to create a function? Create a function to return a list of odd numbers in the
+range of 1 to 25.
+Ans--> In Python, the def keyword is used to create a function. Here's an example of a function that returns a list of odd numbers in the range of 1 to 25:
+def odd_numbers():
+    odds = [x for x in range(1, 26) if x % 2 != 0]
+    return odds
+
+print(odd_numbers())
+
+Q2. Why *args and **kwargs is used in some functions? Create a function each for *args and **kwargs
+to demonstrate their use.
+Ans--> The syntax *args and **kwargs are used in a function definition to allow the function to accept an arbitrary number of non-keyworded (*args) and keyworded (**kwargs) arguments.
+
+Here's an example of a function that uses *args to accept an arbitrary number of non-keyworded arguments:
+def print_args(*args):
+    print("Positional arguments:", args)
+
+print_args(1, 2, 3)
+
+This would produce the following output:
+Positional arguments: (1, 2, 3)
+
+Positional arguments: (1, 2, 3)
+def print_kwargs(**kwargs):
+    print("Keyword arguments:", kwargs)
+
+print_kwargs(a=1, b=2, c=3)
+
+This would produce the following output:
+Keyword arguments: {'a': 1, 'b': 2, 'c': 3}
+
+Q3. What is an iterator in python? Name the method used to initialise the iterator object and the method
+used for iteration. Use these methods to print the first five elements of the given list [2, 4, 6, 8, 10, 12, 14,
+16, 18, 20].
+Ans--> An iterator in Python is an object that implements the iter protocol, which consists of the methods iter() and next(). The iter() method is called to initialize the iterator object, and the next() method is called repeatedly to get the next item in the sequence. When there are no more items to return, the next() method raises the StopIteration exception to signal the end of the iteration.
+
+Here's an example of how you could use the iter and next functions to print the first five elements of a list:
+
+my_list = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+my_iter = iter(my_list)
+
+for i in range(5):
+    print(next(my_iter))
+
+Q4. What is a generator function in python? Why yield keyword is used? Give an example of a generator
+function.
+Ans--> A generator function in Python is a special type of function that uses the yield keyword to return a generator object. Unlike normal functions, which run to completion and return a single value, generator functions can be paused and resumed on-the-fly, returning multiple values one-at-a-time. This allows you to generate a sequence of values over time, instead of generating them all at once and storing them in memory.
+
+The yield keyword is used in a generator function to produce a value and pause the function's execution. When the generator function is resumed, it picks up right where it left off, allowing it to produce the next value in the sequence.
+
+Here's an example of a generator function that generates the squares of the numbers in a given range:
+
+def squares_generator(n):
+    for i in range(n):
+        yield i**2
+
+for square in squares_generator(5):
+    print(square)
+
+This would produce the following output:
+0
+1
+4
+9
+16
